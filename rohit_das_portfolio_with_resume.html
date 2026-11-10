@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="description" content="Rohit Das — M.Tech Information Technology student building machine learning, AI and software engineering projects.">
+  <meta name="author" content="Rohit Das">
+  <meta property="og:title" content="Rohit Das | Software & AI/ML Developer">
+  <meta property="og:description" content="Explore projects in machine learning, RAG, full-stack development and cloud deployment.">
+  <meta property="og:type" content="website">
+  <title>Rohit Das | Software & AI/ML Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg:#090e1b; --surface:#10182a; --surface-2:#151f34; --ink:#edf3ff;
+      --muted:#a2aec4; --line:rgba(174,193,224,.16); --accent:#8b9cff;
+      --accent-2:#5eead4; --accent-ink:#08101d; --glow:rgba(112,133,255,.2);
+      --chip:#1b2941; --shadow:0 22px 70px rgba(0,0,0,.25);
+    }
+    [data-theme="light"] {
+      color-scheme:light; --bg:#f5f7fc; --surface:#fff; --surface-2:#eef2fa;
+      --ink:#172238; --muted:#5b6880; --line:rgba(35,53,84,.14);
+      --accent:#485bd7; --accent-2:#087e78; --accent-ink:#fff;
+      --glow:rgba(72,91,215,.12); --chip:#e9edfa; --shadow:0 22px 70px rgba(30,45,80,.1);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:88px}
+    body{margin:0;background:
+      radial-gradient(ellipse at 85% 0%,var(--glow),transparent 34rem),
+      radial-gradient(ellipse at 0% 35%,rgba(94,234,212,.07),transparent 30rem),
+      var(--bg);color:var(--ink);font:400 16px/1.7 "DM Sans",sans-serif}
+    a{color:inherit;text-decoration:none}
+    a:focus-visible,button:focus-visible{outline:3px solid var(--accent-2);outline-offset:4px}
+    button{font:inherit}
+    .container{width:min(1120px,calc(100% - 44px));margin-inline:auto}
+    .nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 84%,transparent);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+    .nav-inner{height:76px;display:flex;align-items:center;gap:28px}
+    .brand{font:700 21px "Space Grotesk";letter-spacing:-.7px;margin-right:auto}
+    .brand span{color:var(--accent)}
+    .nav-links{display:flex;align-items:center;gap:25px;color:var(--muted);font-size:14px;font-weight:600}
+    .nav-links a:hover{color:var(--ink)}
+    .nav-actions{display:flex;gap:10px;align-items:center}
+    .icon-btn,.menu-btn{width:40px;height:40px;border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--ink);cursor:pointer}
+    .menu-btn{display:none}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:12px 18px;border:1px solid var(--line);border-radius:12px;font-weight:700;font-size:14px;transition:transform .2s,border-color .2s,background .2s}
+    .btn:hover{transform:translateY(-2px);border-color:var(--accent)}
+    .btn.primary{background:linear-gradient(120deg,var(--accent),#a18bff);border-color:transparent;color:#08101d}
+    .btn.ghost{background:var(--surface)}
+    .hero{padding:112px 0 88px;display:grid;grid-template-columns:1.35fr .65fr;gap:60px;align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--accent-2);font-size:13px;font-weight:700;letter-spacing:1.3px;text-transform:uppercase}
+    .dot{width:8px;height:8px;background:var(--accent-2);border-radius:50%;box-shadow:0 0 15px var(--accent-2)}
+    h1,h2,h3{font-family:"Space Grotesk",sans-serif;line-height:1.12;letter-spacing:-.8px}
+    h1{font-size:clamp(43px,6.2vw,76px);margin:22px 0;max-width:760px}
+    .gradient{background:linear-gradient(100deg,var(--accent),var(--accent-2));background-clip:text;-webkit-background-clip:text;color:transparent}
+    .hero-copy{font-size:18px;color:var(--muted);max-width:650px;margin:0 0 28px}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+    .hero-meta{display:flex;gap:22px;flex-wrap:wrap;margin-top:35px;color:var(--muted);font-size:13px}
+    .hero-meta span{display:flex;align-items:center;gap:8px}
+    .hero-card{position:relative;padding:28px;border:1px solid var(--line);border-radius:24px;background:linear-gradient(145deg,var(--surface),var(--surface-2));box-shadow:var(--shadow);overflow:hidden}
+    .hero-card:before{content:"";position:absolute;width:220px;height:220px;border-radius:50%;background:var(--glow);filter:blur(12px);right:-90px;top:-100px}
+    .avatar{width:68px;height:68px;border-radius:20px;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#08101d;font:700 25px "Space Grotesk";margin-bottom:22px}
+    .hero-card h3{font-size:21px;margin:0 0 8px}
+    .hero-card p{color:var(--muted);font-size:14px;margin:0}
+    .mini-line{height:1px;background:var(--line);margin:22px 0}
+    .focus-list{display:grid;gap:13px}
+    .focus-item{display:flex;justify-content:space-between;gap:12px;font-size:13px}
+    .focus-item span:first-child{color:var(--muted)}
+    .focus-item strong{font-weight:600;text-align:right}
+    section{padding:82px 0;border-top:1px solid var(--line)}
+    .section-head{display:flex;justify-content:space-between;gap:25px;align-items:end;margin-bottom:34px}
+    .kicker{color:var(--accent-2);font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase}
+    h2{font-size:clamp(31px,4vw,44px);margin:9px 0 0}
+    .section-intro{color:var(--muted);max-width:470px;margin:0}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}
+    .stat{padding:22px;border:1px solid var(--line);border-radius:17px;background:var(--surface)}
+    .stat strong{display:block;font:700 32px "Space Grotesk";color:var(--accent)}
+    .stat span{color:var(--muted);font-size:13px}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:55px}
+    .about-copy{color:var(--muted);font-size:16px;margin:0}
+    .about-copy + .about-copy{margin-top:15px}
+    .skill-groups{display:grid;gap:15px}
+    .skill-group{padding:18px;border:1px solid var(--line);border-radius:15px;background:var(--surface)}
+    .skill-group h3{font-size:15px;margin:0 0 12px}
+    .chips{display:flex;flex-wrap:wrap;gap:8px}
+    .chip{padding:6px 10px;border-radius:8px;background:var(--chip);color:var(--muted);font-size:12px;font-weight:600}
+    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .project{display:flex;flex-direction:column;min-height:330px;padding:25px;border:1px solid var(--line);border-radius:19px;background:linear-gradient(155deg,var(--surface),color-mix(in srgb,var(--surface-2) 65%,var(--surface)));transition:transform .2s,border-color .2s}
+    .project:hover{transform:translateY(-4px);border-color:color-mix(in srgb,var(--accent) 65%,var(--line))}
+    .project-top{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:19px}
+    .project-type{color:var(--accent-2);font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase}
+    .project-date{color:var(--muted);font-size:12px}
+    .project h3{font-size:22px;margin:0 0 12px}
+    .project p{color:var(--muted);font-size:14px;margin:0}
+    .project ul{padding-left:18px;color:var(--muted);font-size:13px;margin:13px 0}
+    .project li{padding:3px 0}
+    .project .chips{margin-top: auto;padding-top:12px}
+    .project-link{display:inline-flex;align-items:center;gap:8px;color:var(--accent);font-size:13px;font-weight:700;margin-top:20px}
+    .education{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .edu-card{padding:24px;border:1px solid var(--line);border-radius:18px;background:var(--surface)}
+    .edu-card .period{color:var(--accent-2);font-size:12px;font-weight:700}
+    .edu-card h3{font-size:20px;margin:12px 0 7px}
+    .edu-card p{color:var(--muted);font-size:14px;margin:0}
+    .cert-list{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .cert{display:flex;justify-content:space-between;align-items:center;gap:15px;padding:15px 17px;border:1px solid var(--line);border-radius:12px;background:var(--surface);font-size:13px}
+    .cert a{color:var(--accent);font-weight:700;white-space:nowrap}
+    .contact-panel{display:flex;justify-content:space-between;align-items:center;gap:30px;padding:38px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(120deg,var(--surface),var(--surface-2));box-shadow:var(--shadow)}
+    .contact-panel h2{margin:8px 0}
+    .contact-panel p{color:var(--muted);margin:0}
+    .contact-actions{display:flex;flex-wrap:wrap;gap:10px}
+    footer{padding:28px 0;color:var(--muted);font-size:12px}
+    .footer-inner{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+    @media(max-width:850px){
+      .hero{grid-template-columns:1fr;gap:35px;padding-top:80px}
+      .hero-card{max-width:540px}
+      .about-grid{grid-template-columns:1fr;gap:28px}
+      .section-head{align-items:start;flex-direction:column}
+      .nav-links{display:none;position:absolute;top:76px;left:0;right:0;padding:18px 22px 24px;background:var(--bg);border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:16px}
+      .nav-links.open{display:flex}
+      .menu-btn{display:block}
+      .nav-actions .hire{display:none}
+    }
+    @media(max-width:620px){
+      .container{width:min(100% - 32px,1120px)}
+      .hero{padding:65px 0}
+      h1{font-size:clamp(41px,12vw,58px)}
+      section{padding:62px 0}
+      .projects,.education,.cert-list{grid-template-columns:1fr}
+      .stats{gap:9px}
+      .stat{padding:15px}
+      .stat strong{font-size:26px}
+      .contact-panel{align-items:flex-start;flex-direction:column;padding:25px}
+      .project{min-height:0}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#home" aria-label="Rohit Das home">rohit<span>.</span>das</a>
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a>
+        <a href="#education">Education</a><a href="#certifications">Certifications</a><a href="#contact">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeToggle" type="button" aria-label="Toggle light and dark theme">☼</button>
+        <a class="btn primary hire" href="#contact">Let's talk ↗</a>
+        <button class="menu-btn" id="menuToggle" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="container hero" id="home" style="border:0">
+      <div>
+        <div class="eyebrow"><span class="dot"></span> M.Tech IT · Bengaluru, India</div>
+        <h1>Building useful <span class="gradient">software & AI</span> experiences.</h1>
+        <p class="hero-copy">I'm Rohit Das, an Information Technology postgraduate student interested in machine learning, applied AI and software engineering. I enjoy turning ideas into practical applications—from intelligent retrieval systems to full-stack services.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#projects">Explore projects ↘</a>
+          <a class="btn ghost" href="Rohit%20Das.pdf" target="_blank" rel="noopener noreferrer">View resume ↗</a>
+          <a class="btn ghost" href="mailto:rosho3002@gmail.com">Get in touch ↗</a>
+        </div>
+        <div class="hero-meta">
+          <span>⌁ Open to SDE & Data/ML opportunities</span>
+          <span>⌖ Bengaluru, India</span>
+        </div>
+      </div>
+      <aside class="hero-card" aria-label="Profile summary">
+        <div class="avatar">RD</div>
+        <h3>Rohit Das</h3>
+        <p>Software Development · Data Science · Applied AI</p>
+        <div class="mini-line"></div>
+        <div class="focus-list">
+          <div class="focus-item"><span>Currently pursuing</span><strong>M.Tech Information Technology</strong></div>
+          <div class="focus-item"><span>University</span><strong>R.V. College of Engineering</strong></div>
+          <div class="focus-item"><span>Core interests</span><strong>ML · Backend · AI systems</strong></div>
+          <div class="focus-item"><span>Preferred language</span><strong>C++ / Python</strong></div>
+        </div>
+      </aside>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <div><div class="kicker">At a glance</div><h2>Learning by building.</h2></div>
+          <p class="section-intro">A snapshot of the projects and technologies represented in my current portfolio.</p>
+        </div>
+        <div class="stats">
+          <div class="stat"><strong>4</strong><span>Featured projects</span></div>
+          <div class="stat"><strong>2</strong><span>Conversational AI / RAG projects</span></div>
+          <div class="stat"><strong>20+</strong><span>Technologies explored</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head"><div><div class="kicker">A little about me</div><h2>Curious mind. Practical builder.</h2></div></div>
+        <div class="about-grid">
+          <div>
+            <p class="about-copy">I am pursuing an M.Tech in Information Technology at R.V. College of Engineering, Bengaluru. My interests span data science, machine learning and software development.</p>
+            <p class="about-copy">I like understanding how systems work end to end: preparing data, building model or retrieval workflows, developing APIs and interfaces, and deploying applications with cloud and container tools.</p>
+          </div>
+          <div class="skill-groups" id="skills">
+            <div class="skill-group"><h3>Programming & data</h3><div class="chips"><span class="chip">C++</span><span class="chip">Python</span><span class="chip">Java</span><span class="chip">SQL</span><span class="chip">JavaScript</span><span class="chip">TypeScript</span></div></div>
+            <div class="skill-group"><h3>Frontend & backend</h3><div class="chips"><span class="chip">React</span><span class="chip">Next.js</span><span class="chip">Angular</span><span class="chip">Tailwind</span><span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">Spring Boot</span></div></div>
+            <div class="skill-group"><h3>AI, ML & data tools</h3><div class="chips"><span class="chip">scikit-learn</span><span class="chip">TensorFlow</span><span class="chip">Pandas</span><span class="chip">FAISS</span><span class="chip">RAG</span><span class="chip">LLMs</span></div></div>
+            <div class="skill-group"><h3>Cloud, databases & DevOps</h3><div class="chips"><span class="chip">AWS</span><span class="chip">Docker</span><span class="chip">PostgreSQL</span><span class="chip">MySQL</span><span class="chip">Redis</span><span class="chip">Kafka</span><span class="chip">GitHub Actions</span></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="kicker">Selected work</div><h2>Projects I've built.</h2></div>
+          <p class="section-intro">A mix of machine learning, retrieval-augmented generation and full-stack cloud development.</p>
+        </div>
+        <div class="projects">
+          <article class="project">
+            <div class="project-top"><span class="project-type">Machine learning</span><span class="project-date">Jul 2026</span></div>
+            <h3>Shield Insurance Premium Prediction</h3>
+            <p>A machine learning pipeline for estimating annual insurance premiums from customer and policy features.</p>
+            <ul><li>Prepared data and compared multiple models to select a performer.</li><li>Packaged a reusable inference pipeline for predictions on new customer data.</li></ul>
+            <div class="chips"><span class="chip">Python</span><span class="chip">Pandas</span><span class="chip">scikit-learn</span></div>
+            <a class="project-link" href="https://github.com/Das-Rohit/Shield-Insurance-Policy" target="_blank" rel="noopener noreferrer">View source on GitHub ↗</a>
+          </article>
+          <article class="project">
+            <div class="project-top"><span class="project-type">Full-stack · Cloud</span><span class="project-date">Aug 2026</span></div>
+            <h3>Student Directory</h3>
+            <p>A full-stack student management application with REST APIs, containerized services and an AWS deployment design.</p>
+            <ul><li>Built Angular frontend, Spring Boot APIs and MySQL persistence.</li><li>Used Docker Compose and health checks; deployment spans ECS/Fargate, ALB, RDS, S3, CloudFront and Route 53.</li></ul>
+            <div class="chips"><span class="chip">Angular</span><span class="chip">Spring Boot</span><span class="chip">MySQL</span><span class="chip">Docker</span><span class="chip">AWS</span></div>
+            <a class="project-link" href="https://github.com/Das-Rohit/Student-Directory" target="_blank" rel="noopener noreferrer">View source on GitHub ↗</a>
+          </article>
+          <article class="project">
+            <div class="project-top"><span class="project-type">RAG · Generative AI</span><span class="project-date">Sep 2026</span></div>
+            <h3>Real Estate AI Assistant</h3>
+            <p>A conversational property-search assistant combining retrieval, vector search and Gemini to make listing discovery more natural.</p>
+            <ul><li>Indexed listings as 384-dimensional embeddings with structured filters across eight Bengaluru locations.</li><li>Added caching in the Streamlit interface to avoid repeated model and index rebuilds.</li></ul>
+            <div class="chips"><span class="chip">Python</span><span class="chip">FAISS</span><span class="chip">Gemini</span><span class="chip">Streamlit</span></div>
+            <a class="project-link" href="https://github.com/Das-Rohit/Real-Estate-RAG-Project" target="_blank" rel="noopener noreferrer">View source on GitHub ↗</a>
+          </article>
+          <article class="project">
+            <div class="project-top"><span class="project-type">Conversational AI</span><span class="project-date">Sep 2026</span></div>
+            <h3>E-Commerce AI Shopping Assistant</h3>
+            <p>A shopping assistant that brings product discovery, recommendations, comparisons and store FAQs into one conversational interface.</p>
+            <ul><li>Routed queries across three intent-based flows and ranked products using relevance, rating, stock and budget.</li><li>Validated retrieval logic with four test modules and added conversation memory for follow-up questions.</li></ul>
+            <div class="chips"><span class="chip">Sentence Transformers</span><span class="chip">FAISS</span><span class="chip">Gemini</span></div>
+            <a class="project-link" href="https://github.com/Das-Rohit/E-Commerce-AI-Chatbot" target="_blank" rel="noopener noreferrer">View source on GitHub ↗</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <div class="section-head"><div><div class="kicker">Academic background</div><h2>Education.</h2></div></div>
+        <div class="education">
+          <article class="edu-card"><span class="period">2026 – 2028 · Pursuing</span><h3>M.Tech, Information Technology</h3><p>R.V. College of Engineering, Bengaluru</p></article>
+          <article class="edu-card"><span class="period">2021 – 2025</span><h3>B.Tech, Computer Science Engineering</h3><p>University of Engineering and Management, Kolkata · CGPA 8.31</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="certifications">
+      <div class="container">
+        <div class="section-head"><div><div class="kicker">Continuous learning</div><h2>Certifications.</h2></div><p class="section-intro">Selected course-completion credentials and learning milestones.</p></div>
+        <div class="cert-list">
+          <div class="cert"><span>Python: Beginner to Advanced for Data Professionals</span><a href="https://codebasics.io/certificate/CB-48-713301" target="_blank" rel="noopener noreferrer">View ↗</a></div>
+          <div class="cert"><span>SQL for Data Science</span><a href="https://codebasics.io/certificate/CB-82-713301" target="_blank" rel="noopener noreferrer">View ↗</a></div>
+          <div class="cert"><span>Math and Statistics for AI & Data Science</span><a href="https://codebasics.io/certificate/CB-63-713301" target="_blank" rel="noopener noreferrer">View ↗</a></div>
+          <div class="cert"><span>Master Machine Learning for Data Science & AI</span><a href="https://codebasics.io/certificate/CB-69-713301" target="_blank" rel="noopener noreferrer">View ↗</a></div>
+          <div class="cert"><span>Deep Learning: Beginner to Advanced</span><a href="https://codebasics.io/certificate/CB-85-713301" target="_blank" rel="noopener noreferrer">View ↗</a></div>
+          <div class="cert"><span>Natural Language Processing</span><a href="https://codebasics.io/certificate/CB-89-713301" target="_blank" rel="noopener noreferrer">View ↗</a></div>
+          <div class="cert"><span>Gen AI to Agentic AI with Business Projects</span><a href="https://codebasics.io/certificate/CB-90-713301" target="_blank" rel="noopener noreferrer">View ↗</a></div>
+          <div class="cert"><span>Web Development with HTML, CSS & JavaScript</span><a href="https://www.credly.com/badges/05011e53-9bf9-493c-8ee5-55f02b5b8411" target="_blank" rel="noopener noreferrer">View ↗</a></div>
+          <div class="cert"><span>Git and GitHub Essentials</span><a href="https://www.credly.com/badges/5823e281-d796-4b2c-ba28-4694f9293563" target="_blank" rel="noopener noreferrer">View ↗</a></div>
+          <div class="cert"><span>Udemy Certificate of Completion</span><a href="https://www.udemy.com/certificate/UC-aa325a9a-644c-44fe-ae55-3e0ca2f787f4/" target="_blank" rel="noopener noreferrer">View ↗</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-panel">
+          <div><div class="kicker">Have an opportunity?</div><h2>Let's build something meaningful.</h2><p>Feel free to reach out about software, data science or machine learning opportunities.</p></div>
+          <div class="contact-actions">
+            <a class="btn primary" href="Rohit%20Das.pdf" target="_blank" rel="noopener noreferrer">View resume ↗</a>
+            <a class="btn ghost" href="mailto:rosho3002@gmail.com">Email me ↗</a>
+            <a class="btn ghost" href="https://www.linkedin.com/in/rohit-das-466b06220/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+            <a class="btn ghost" href="https://github.com/Das-Rohit" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            <a class="btn ghost" href="https://leetcode.com/u/rosho3002/" target="_blank" rel="noopener noreferrer">LeetCode ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer><div class="container footer-inner"><span>© <span id="year">2026</span> Rohit Das</span><span>Designed & built with care · Bengaluru, India</span></div></footer>
+
+  <script>
+    const root = document.documentElement;
+    const themeToggle = document.getElementById('themeToggle');
+    const savedTheme = localStorage.getItem('portfolio-theme');
+    if (savedTheme === 'light' || savedTheme === 'dark') root.dataset.theme = savedTheme;
+    themeToggle.textContent = root.dataset.theme === 'light' ? '☾' : '☼';
+    themeToggle.addEventListener('click', () => {
+      root.dataset.theme = root.dataset.theme === 'light' ? 'dark' : 'light';
+      localStorage.setItem('portfolio-theme', root.dataset.theme);
+      themeToggle.textContent = root.dataset.theme === 'light' ? '☾' : '☼';
+    });
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+      menuToggle.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
+    });
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.setAttribute('aria-label', 'Open navigation');
+    }));
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
